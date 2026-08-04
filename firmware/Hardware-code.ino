@@ -1,20 +1,13 @@
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <HTTPClient.h>
+#include "config.h"
 #include <Wire.h>
 #include "MAX30105.h"
 #include <Adafruit_MLX90614.h>
 #include <MPU6050_light.h>
 #include <ArduinoJson.h>
 
-// ── WiFi credentials ──────────────────────────────
-const char* WIFI_SSID     = "Airbox-63E3";
-const char* WIFI_PASSWORD = "3LV73VAG";
-
-// ── API settings ──────────────────────────────────
-const char* API_URL   = "https://smartcalm-api.onrender.com/predict";
-const char* DEVICE_ID = "esp32-001";
-const char* USER_ID   = "73b015fe-38c4-4547-80c0-54a91f73e00b";
 
 // ── Pin definitions ───────────────────────────────
 #define SDA_PIN  4    // D4
@@ -88,7 +81,7 @@ void setup() {
     Serial.println("✅ MLX90614 ready.");
   }
 
-  Serial.println("\n🚀 Starting data collection...\n");
+  Serial.println("\n Starting data collection...\n");
 }
 
 // ─────────────────────────────────────────────────
@@ -164,7 +157,7 @@ void sendReading() {
         if (ready) {
           Serial.printf("✅ Stress: %s (%.0f%% confidence)\n", stressLevel, confidence * 100);
         } else {
-          Serial.printf("⏳ Buffering... %d/60 readings\n", windowSize);
+          Serial.printf(" Buffering... %d/60 readings\n", windowSize);
         }
       }
     } else if (httpCode == -1) {
