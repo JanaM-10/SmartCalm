@@ -72,4 +72,3 @@ For flexibility (e.g., switching between a dev and production Supabase project w
 
 - Add automated widget/integration tests
 - Complete and test iOS build support
-- Add app screenshots to `../media/` for the root README
