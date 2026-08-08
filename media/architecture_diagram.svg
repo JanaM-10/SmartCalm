@@ -1,0 +1,72 @@
+<svg viewBox="0 0 1300 480" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1300" height="480" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="650" y="42" text-anchor="middle" font-size="24" font-weight="bold" fill="#111">
+    SMARTCALM PIPELINE: FROM SENSOR SIGNAL TO LIVE STRESS FEEDBACK
+  </text>
+
+  <!-- Stage 1: Wristband -->
+  <rect x="30" y="150" width="210" height="150" rx="10" fill="#ffffff" stroke="#0F5C5C" stroke-width="2.5"/>
+  <rect x="30" y="150" width="210" height="34" rx="10" fill="#0F5C5C"/>
+  <text x="135" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="white">ESP32-S3 WRISTBAND</text>
+  <text x="135" y="205" text-anchor="middle" font-size="12" fill="#333">EDA (electrodermal)</text>
+  <text x="135" y="225" text-anchor="middle" font-size="12" fill="#333">BVP (MAX30105)</text>
+  <text x="135" y="245" text-anchor="middle" font-size="12" fill="#333">TEMP (MLX90614)</text>
+  <text x="135" y="265" text-anchor="middle" font-size="12" fill="#333">3-axis ACC (MPU6050)</text>
+  <text x="135" y="285" text-anchor="middle" font-size="11" fill="#888">sampled every 250ms</text>
+
+  <!-- Stage 2: Feature Extraction -->
+  <rect x="280" y="150" width="210" height="150" rx="10" fill="#ffffff" stroke="#444" stroke-width="2.5"/>
+  <rect x="280" y="150" width="210" height="34" rx="10" fill="#444"/>
+  <text x="385" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="white">FEATURE EXTRACTION</text>
+  <text x="385" y="205" text-anchor="middle" font-size="12" fill="#333">60-reading buffer</text>
+  <text x="385" y="225" text-anchor="middle" font-size="12" fill="#333">~81 statistical +</text>
+  <text x="385" y="243" text-anchor="middle" font-size="12" fill="#333">domain features</text>
+  <text x="385" y="265" text-anchor="middle" font-size="12" fill="#333">RobustScaler</text>
+  <text x="385" y="285" text-anchor="middle" font-size="11" fill="#888">scipy + numpy</text>
+
+  <!-- Stage 3: ML Model -->
+  <rect x="530" y="150" width="230" height="150" rx="10" fill="#ffffff" stroke="#8B1E1E" stroke-width="2.5"/>
+  <rect x="530" y="150" width="230" height="34" rx="10" fill="#8B1E1E"/>
+  <text x="645" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="white">DEEP RESIDUAL MLP</text>
+  <text x="645" y="205" text-anchor="middle" font-size="12" fill="#333">3 residual blocks</text>
+  <text x="645" y="225" text-anchor="middle" font-size="12" fill="#333">GAN-augmented (WESAD)</text>
+  <text x="645" y="245" text-anchor="middle" font-size="12" fill="#333">LOSO validated, 94.5% acc</text>
+  <text x="645" y="265" text-anchor="middle" font-size="12" fill="#333">ONNX Runtime inference</text>
+  <text x="645" y="285" text-anchor="middle" font-size="11" fill="#888">Calm / Mild / High</text>
+
+  <!-- Stage 4: Supabase -->
+  <rect x="800" y="150" width="210" height="150" rx="10" fill="#ffffff" stroke="#0e9f6e" stroke-width="2.5"/>
+  <rect x="800" y="150" width="210" height="34" rx="10" fill="#0e9f6e"/>
+  <text x="905" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="white">SUPABASE</text>
+  <text x="905" y="205" text-anchor="middle" font-size="12" fill="#333">Auth (session mgmt)</text>
+  <text x="905" y="225" text-anchor="middle" font-size="12" fill="#333">Postgres storage</text>
+  <text x="905" y="245" text-anchor="middle" font-size="12" fill="#333">stress_readings</text>
+  <text x="905" y="265" text-anchor="middle" font-size="12" fill="#333">calm_sessions · journal</text>
+  <text x="905" y="285" text-anchor="middle" font-size="11" fill="#888">Row Level Security</text>
+
+  <!-- Stage 5: Mobile App -->
+  <rect x="1050" y="150" width="220" height="150" rx="10" fill="#ffffff" stroke="#02569B" stroke-width="2.5"/>
+  <rect x="1050" y="150" width="220" height="34" rx="10" fill="#02569B"/>
+  <text x="1160" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="white">FLUTTER APP</text>
+  <text x="1160" y="205" text-anchor="middle" font-size="12" fill="#333">Live stress display</text>
+  <text x="1160" y="225" text-anchor="middle" font-size="12" fill="#333">Trends &amp; reports</text>
+  <text x="1160" y="245" text-anchor="middle" font-size="12" fill="#333">Calming activities</text>
+  <text x="1160" y="265" text-anchor="middle" font-size="12" fill="#333">Personal journal</text>
+  <text x="1160" y="285" text-anchor="middle" font-size="11" fill="#888">login / signup / guest mode</text>
+
+  <!-- Arrows -->
+  <line x1="240" y1="220" x2="275" y2="220" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="490" y1="220" x2="525" y2="220" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="760" y1="220" x2="795" y2="220" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="1010" y1="220" x2="1045" y2="220" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="650" y="360" text-anchor="middle" font-size="13" fill="#888">Every prediction is buffered, classified, logged, and reflected live in the app — end to end.</text>
+</svg>
