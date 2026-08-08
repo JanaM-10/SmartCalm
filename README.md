@@ -38,10 +38,10 @@ Developed as a graduation capstone project — Artificial Intelligence Departmen
 
 The model was validated with Leave-One-Subject-Out (LOSO) cross-validation across 15 WESAD subjects, evaluated on **real data only**:
 
-- **Accuracy:** 94.5% (mean)
-- **Recall:** 90.4% (mean)
-- **F1 Score:** 86.5% (mean)
-- **AUC-ROC:** 98.0% (mean)
+- **Accuracy:** 94.49%
+- **Recall:** 90.41%
+- **F1 Score:** 86.55%
+- **AUC-ROC:** 98.03%
 
 Full training details, per-subject results, and synthetic-data validation are in [`ml-model/README.md`](ml-model/README.md).
 
