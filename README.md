@@ -1,6 +1,6 @@
 # SmartCalm
 
-![ESP32](https://img.shields.io/badge/ESP32--S3-Wearable-teal) ![PyTorch](https://img.shields.io/badge/PyTorch-Deep_Residual_MLP-red) ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-black) ![Flutter](https://img.shields.io/badge/Flutter-Mobile_App-02569B)
+![ESP32](https://img.shields.io/badge/ESP32--S3-Wearable-teal) ![PyTorch](https://img.shields.io/badge/PyTorch-Deep_Residual_MLP-red) ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-black) ![Supabase](https://img.shields.io/badge/Supabase-Storage-3ECF8E) ![Flutter](https://img.shields.io/badge/Flutter-Mobile_App-02569B)
 
 A real-time wearable stress detection system. A custom ESP32-S3 wristband streams physiological signals (EDA, BVP, skin temperature, and motion) to a trained Deep Residual MLP model, which classifies stress into **Calm**, **Mild**, or **High** and delivers live feedback through a companion mobile app.
 
@@ -18,14 +18,16 @@ Developed as a graduation capstone project — Artificial Intelligence Departmen
 </tr>
 </table>
 
-<p align="center"><img src="media/app/login_screen.jpeg" width="220"></p>
+<table>
+<tr>
+<td align="center"><img src="media/app/login_screen.jpeg" width="220"><br><b>Login</b></td>
+<td align="center"><img src="media/app/report_screen.jpeg" width="220"><br><b>Report</b></td>
+</tr>
+</table>
 
 ## How It Works
 
-```
- Wristband (ESP32-S3)  →  FastAPI Backend  →  Supabase  →  Mobile App
-   sensors + BLE/WiFi      ONNX inference      storage       live UI
-```
+<p align="center"><img src="media/architecture_diagram.svg" width="900"></p>
 
 1. The wristband continuously samples EDA, BVP, skin temperature, and 3-axis acceleration and sends readings over WiFi.
 2. The backend buffers 60 readings per device, extracts ~81 statistical/domain features, and runs them through a Deep Residual MLP (trained on WESAD, GAN-augmented for class balance) exported to ONNX.
